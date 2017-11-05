@@ -3,6 +3,7 @@ public class Solution {
     /*
      * @param nums: A set of numbers
      * @return: A list of lists
+     * http://www.lintcode.com/en/problem/subsets/
      */
     public List<List<Integer>> subsets(int[] nums) {
         // write your code here
