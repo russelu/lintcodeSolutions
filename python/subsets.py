@@ -1,6 +1,7 @@
 class Solution:
     
     """
+    http://www.lintcode.com/en/problem/subsets/
     @param: nums: A set of numbers
     @return: A list of lists
     """
