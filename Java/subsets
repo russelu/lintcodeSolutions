@@ -1,0 +1,40 @@
+public class Solution {
+    
+    /*
+     * @param nums: A set of numbers
+     * @return: A list of lists
+     */
+    public List<List<Integer>> subsets(int[] nums) {
+        // write your code here
+        List<List<Integer>> results = new ArrayList<>();
+        
+        if (nums == null) {
+            return results;
+        }
+        
+        if (nums.length == 0) {
+            results.add(new ArrayList<Integer>());
+            return results;
+        }
+        
+        Arrays.sort(nums);
+        
+        findSubsets(results, nums, new ArrayList<Integer>(), 0);
+        
+        return results;
+    }
+    
+    private void findSubsets(List<List<Integer>> results,
+                            int[] nums, 
+                            ArrayList<Integer> subset,
+                            int startIndex) {
+                                
+        results.add(new ArrayList<Integer>(subset));
+        
+        for (int i = startIndex; i < nums.length; i++) {
+            subset.add(nums[i]);
+            findSubsets(results, nums, subset, i+1);
+            subset.remove(subset.size() - 1);
+        }
+    }
+}
