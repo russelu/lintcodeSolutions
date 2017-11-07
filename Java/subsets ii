@@ -1,0 +1,38 @@
+public class Solution {
+    /*
+     * @param nums: A set of numbers.
+     * @return: A list of lists. All valid subsets.
+     */
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        // write your code here
+        List<List<Integer>> results = new ArrayList<>();
+        
+        if (nums == null) {
+            return null;
+        }
+        if (nums.length == 0) {
+            results.add(new ArrayList<>());
+            return results;
+        }
+        
+        Arrays.sort(nums);
+        findSubsets(nums, results, 0, new ArrayList<Integer>());
+        
+        return results;
+    }
+    
+    private void findSubsets(int[] nums,
+                        List<List<Integer>> results,
+                        int startIndex,
+                        ArrayList<Integer> subset) {
+        results.add(new ArrayList<Integer>(subset));
+        for (int i = startIndex; i < nums.length; i++) {
+            if (i != startIndex && nums[i] == nums[i-1]) {
+                continue;
+            }
+            subset.add(nums[i]);
+            findSubsets(nums, results, i+1, subset);
+            subset.remove(subset.size()-1);
+        }
+    }
+}
