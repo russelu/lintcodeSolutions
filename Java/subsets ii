@@ -1,5 +1,6 @@
 public class Solution {
     /*
+     * http://www.lintcode.com/en/problem/subsets-ii/
      * @param nums: A set of numbers.
      * @return: A list of lists. All valid subsets.
      */
